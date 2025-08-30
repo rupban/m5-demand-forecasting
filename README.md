@@ -28,7 +28,7 @@ This repository implements an end-to-end weekly forecasting workflow inspired by
 
 ---
 
-## 🛠 Methods and Models
+## Methods and Models
 
 - **Baselines:**  
   - SES — Level/trend smoothing for sanity checks  

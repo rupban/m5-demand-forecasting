@@ -8,7 +8,7 @@ This repository contains my end-to-end work on the [Kaggle M5 Forecasting - Accu
 The goal is to forecast daily Walmart sales across thousands of products and stores, using multiple approaches and the WRMSSE metric.
 
 ## 📄 Project Report
-A full research-style report is available in [`m5_forecasting_report.pdf`](m5-demand-forecasting/report.pdf).
+A full research-style report is available in [`m5_forecasting_report.pdf`](report/m5-demand-forecasting.pdf).
 
 ## 🔑 Key Features
 ## Project Overview

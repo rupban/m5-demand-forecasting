@@ -46,24 +46,10 @@ This repository implements an end-to-end weekly forecasting workflow inspired by
 
 Metrics used: **RMSE**, **sMAPE**, and **WRMSSE**.
 
-- **RMSE:**  
+- **RMSE:**  which is the square root of the MSE
+- 
+- **sMAPE:** fixes the shortcoming of the original MAPE — it has both the lower (0%) and the upper (200%) bounds.
   
-
-\[
-  \mathrm{RMSE} = \sqrt{\frac{1}{n}\sum_{t=1}^{n}(\hat{y}_t - y_t)^2}
-  \]
-
-
-
-- **sMAPE:**  
-  
-
-\[
-  \mathrm{sMAPE} = \frac{100\%}{n}\sum_{t=1}^{n}\frac{2|\hat{y}_t - y_t|}{|y_t|+|\hat{y}_t|}
-  \]
-
-
-
 - **WRMSSE:** Weighted average of per-series RMSSE values using recent-dollar-sales weights.
 
 - **Validation:** Walk-forward — train on a rolling window, predict the next fold, roll again.

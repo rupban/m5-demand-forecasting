@@ -4,6 +4,13 @@ A pragmatic, reproducible pipeline that turns the M5 retail dataset into busines
 
 ---
 
+This repository contains my end-to-end work on the [Kaggle M5 Forecasting - Accuracy](https://www.kaggle.com/competitions/m5-forecasting-accuracy) competition.  
+The goal is to forecast daily Walmart sales across thousands of products and stores, using multiple approaches and the WRMSSE metric.
+
+## 📄 Project Report
+A full research-style report is available in [`m5_forecasting_report.pdf`](m5-demand-forecasting/report.pdf).
+
+## 🔑 Key Features
 ## Project Overview
 
 This repository implements an end-to-end weekly forecasting workflow inspired by the M5 Forecasting task, with a strong emphasis on feature engineering, interpretable baselines, and business-weighted evaluation.

@@ -79,21 +79,21 @@ Metrics used: **RMSE**, **sMAPE**, and **WRMSSE**.
 
 ## Requirements
 
-# Core scientific stack
-numpy>=1.21
-pandas>=1.3
+**Core scientific stack**
+- numpy>=1.21
+- pandas>=1.3
 
-# Forecasting / time series
-statsmodels>=0.13
-scikit-learn>=1.0
+**Forecasting / time series**
+- statsmodels>=0.13
+- scikit-learn>=1.0
 
-# Visualization
-matplotlib>=3.4
-seaborn>=0.11
+# Visualization**
+- matplotlib>=3.4
+- seaborn>=0.11
 
-# Notebook environment
-jupyterlab>=3.0
-notebook>=6.4
-ipykernel>=6.0
+**Notebook environment**
+- jupyterlab>=3.0
+- notebook>=6.4
+- ipykernel>=6.0
 
 ---

@@ -1,4 +1,4 @@
-# Demand Forecasting for Retail (M5-based, Production-Minded)
+# Demand Forecasting for Retail (M5-based)
 
 A pragmatic, reproducible pipeline that turns the M5 retail dataset into business-aligned demand forecasts. The focus is simple: encode the right signals, ship a stable baseline fast, and climb the accuracy curve with targeted upgrades where they actually move inventory, working capital, and trust.
 

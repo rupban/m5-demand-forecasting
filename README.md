@@ -87,7 +87,7 @@ Metrics used: **RMSE**, **sMAPE**, and **WRMSSE**.
 - statsmodels>=0.13
 - scikit-learn>=1.0
 
-# Visualization**
+**Visualization**
 - matplotlib>=3.4
 - seaborn>=0.11
 

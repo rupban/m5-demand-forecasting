@@ -38,12 +38,12 @@ This repository implements an end-to-end weekly forecasting workflow inspired by
 ## Methods and Models
 
 - **Baselines:**  
-  - SES — Level/trend smoothing for sanity checks  
-  - MA — Short-window average for fast adaptation to level shifts
+  - SES — Level/trend smoothing for sanity checks.  
+  - MA — Short-window average for fast adaptation to level shifts.
 - **Time series:**  
-  - ARIMA — Applied where stationarity holds; specified using ADF tests plus ACF/PACF diagnostics
+  - ARIMA — Applied where stationarity holds; specified using ADF tests plus ACF/PACF diagnostics.
 - **Regression (tabular TS):**  
-  - Linear / Ridge / Lasso — Trained on engineered features; interpretable, stable, and production-friendly
+  - Linear / Ridge / Lasso — Trained on engineered features; interpretable, stable, and production-friendly.
 
 ---
 

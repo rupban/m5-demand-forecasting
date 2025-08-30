@@ -52,7 +52,7 @@ This repository implements an end-to-end weekly forecasting workflow inspired by
 Metrics used: **RMSE**, **sMAPE**, and **WRMSSE**.
 
 - **RMSE:**  which is the square root of the MSE
-- 
+  
 - **sMAPE:** fixes the shortcoming of the original MAPE — it has both the lower (0%) and the upper (200%) bounds.
   
 - **WRMSSE:** Weighted average of per-series RMSSE values using recent-dollar-sales weights.

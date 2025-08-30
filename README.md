@@ -1,2 +1,89 @@
 # m5-demand-forecasting
-Forecasting Walmart sales using M5 dataset with time series and regression models. Includes WRMSSE evaluation, baseline comparisons, and a structured research report.
+
+# Demand Forecasting for Retail (M5-based, Production-Minded)
+
+A pragmatic, reproducible pipeline that turns the M5 retail dataset into business-aligned demand forecasts. The focus is simple: encode the right signals, ship a stable baseline fast, and climb the accuracy curve with targeted upgrades where they actually move inventory, working capital, and trust.
+
+---
+
+## Project Overview
+
+This repository implements an end-to-end weekly forecasting workflow inspired by the M5 Forecasting task, with a strong emphasis on feature engineering, interpretable baselines, and business-weighted evaluation.
+
+- **Core idea:** Engineer lag/seasonality, calendar/events, and price features; benchmark SES/MA/ARIMA against Linear, Ridge, and Lasso; select using business-aligned metrics.
+- **Why weekly aggregation:** Clearer seasonality, simpler joins with weekly prices, lower volatility for robust, production-friendly training.
+- **Business alignment:** Model selection and prioritization guided by WRMSSE so that improvements where dollars live get the most attention.
+- **Roadmap:** Deploy Ridge now; add a promotion-aware adjustment; pilot LightGBM and MinT next; explore probabilistic and neural models where justified.
+
+---
+
+## Data and Features
+
+- **Datasets:** M5 Accuracy data (sales, calendar, sell_prices) at item-store-day level for 2011–2016.
+- **Aggregation:** Weekly consolidation to reduce noise and align with price records.
+- **Feature sets:**
+  - **Lags:** 1, 4, 52 weeks
+  - **Rolling stats:** Means/standard deviations over 2, 4, 8, 52 weeks
+  - **Calendar/events:** Week-of-year, month, holidays/events, SNAP flags
+  - **Price signals:** Price, lagged price, percentage change, price-drop flags
+  - **Identifiers:** Store/department/category encodings (for pooled regressions)
+
+---
+
+## 🛠 Methods and Models
+
+- **Baselines:**  
+  - SES — Level/trend smoothing for sanity checks  
+  - MA — Short-window average for fast adaptation to level shifts
+- **Time series:**  
+  - ARIMA — Applied where stationarity holds; specified using ADF tests plus ACF/PACF diagnostics
+- **Regression (tabular TS):**  
+  - Linear / Ridge / Lasso — Trained on engineered features; interpretable, stable, and production-friendly
+
+---
+
+## Evaluation and Metrics
+
+Metrics used: **RMSE**, **sMAPE**, and **WRMSSE**.
+
+- **RMSE:**  
+  
+
+\[
+  \mathrm{RMSE} = \sqrt{\frac{1}{n}\sum_{t=1}^{n}(\hat{y}_t - y_t)^2}
+  \]
+
+
+
+- **sMAPE:**  
+  
+
+\[
+  \mathrm{sMAPE} = \frac{100\%}{n}\sum_{t=1}^{n}\frac{2|\hat{y}_t - y_t|}{|y_t|+|\hat{y}_t|}
+  \]
+
+
+
+- **WRMSSE:** Weighted average of per-series RMSSE values using recent-dollar-sales weights.
+
+- **Validation:** Walk-forward — train on a rolling window, predict the next fold, roll again.
+
+---
+
+## Results and Insights
+
+**Example SKU (FOODS_3_090 @ CA_3):**
+
+| Model         | RMSE    | sMAPE  | WRMSSE   |
+|---------------|---------|--------|----------|
+| SES           | 478.62  | 11.36  | 0.1326   |
+| MA            | 229.58  | 4.52   | 0.0636   |
+| ARIMA         | 304.42  | 5.62   | 0.0843   |
+| Ridge/Lasso   | 95.45   | 2.09   | 0.0264   |
+
+**Key takeaways:**
+- Feature engineering > model complexity
+- Ridge regression is a deployable, interpretable baseline
+- Promotion underprediction is the main gap — needs explicit handling
+
+---
